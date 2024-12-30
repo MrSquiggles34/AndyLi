@@ -45,12 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function isElementInViewport(el) {
         var rect = el.getBoundingClientRect();
         return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom > 0
         );
     }
+    
 
     function handleScroll() {
         slideLeftElements.forEach(function (el) {
@@ -91,4 +90,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupModalForPane(1);
     setupModalForPane(2);
+    setupModalForPane(3);
+    setupModalForPane(4);
 });
